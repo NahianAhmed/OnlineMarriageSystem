@@ -35,7 +35,7 @@ include 'header.php';
         <div class="col-md-3 col-md-pull-9 sidebar visible-md-block visible-lg-block">
           <ul class="nav nav-pills nav-stacked">
             <li class="active">
-              <a href="about.html" class="first">
+              <a href="about.php" class="first">
                   About Us
                   <small>How It All Began</small>
                 </a>

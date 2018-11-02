@@ -10,7 +10,18 @@
     <meta name="author" content="">
 
     <title>Admin</title>
+<?php  
+   session_start();
+   $admin=$_SESSION["admin"] ;
+   
+   
+  if($admin=='admin'){
 
+  }
+  else{
+    echo '<script> location.replace("../../adminlogin.php"); </script>';
+  }
+   ?>
     <!-- Bootstrap Core CSS -->
     <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -77,7 +88,9 @@
                             <a href="review.php"><i class="fa fa-table fa-fw"></i> Review Registration </a>
                         </li>
                         
-                        
+                        <li>
+                            <a href="logout.php"><i class="fa fa-table fa-fw"></i> LogOut </a>
+                        </li>
                         
                       
                        
@@ -113,20 +126,45 @@
   </thead>
   <tbody id="myTable">
  
+<?php 
+include "connection.php";
+$query=("select * from qazilist ");
+$result=mysqli_query($connection,$query);
+if ($result) {
+  while ($row = mysqli_fetch_array($result)) {
+
+
+    echo "
     <tr>
-      <td>a</td>
-      <td>c</td>
-      <td>d</td>
+      <td>".$row['RegID']."</td>
+      <td>".$row['name']."</td>
+      <td>".$row['email']."</td>
       
       
       <td>
-                <a href="" class="btn btn-info" title="Qazi Details View">
-                    <span class="glyphicon glyphicon-eye-open"></span>
+                <a href='' class='btn btn-info' title='Qazi Details View'>
+                    <span class='glyphicon glyphicon-eye-open'></span>
                 </a>
                 
                 
             </td> 
     </tr>
+  ";
+  
+  }
+  
+}
+else{
+  echo "<h6 >NO RECORD FOUND</h6>";
+}
+
+?>
+
+
+
+
+
+
 
 
   </tbody>

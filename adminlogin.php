@@ -1,3 +1,7 @@
+
+
+<?php session_start();?> 
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -104,8 +108,10 @@ if(isset($_POST['button'])){
   $pass=$_POST['password'];
 
   if($user=='admin'&&$pass=='admin'){
-
-    echo '<script> location.replace("AdminDash.php"); </script>';
+     
+    $_SESSION["admin"] = $user;
+    
+    echo '<script> location.replace("admin/pages/"); </script>';
 
   }
   else{

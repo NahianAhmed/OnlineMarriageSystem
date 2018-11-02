@@ -1,5 +1,7 @@
 
-
+<?php
+include 'connection.php';
+?>
 
 <footer id="footer" class="block block-bg-grey-dark" data-block-bg-img="img/bg_footer-map.png" data-stellar-background-ratio="0.4">
     <div class="container">
@@ -23,31 +25,66 @@
           <h4 class="text-uppercase">
               Contact Us
             </h4>
-          <div class="form">
-            <div id="sendmessage">Your message has been sent. Thank you!</div>
-            <div id="errormessage"></div>
-            <form action="" method="post" role="form" class="contactForm">
-              <div class="form-group">
-                <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
-                <div class="validation"></div>
-              </div>
-              <div class="form-group">
-                <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
-                <div class="validation"></div>
-              </div>
-              <div class="form-group">
-                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
-                <div class="validation"></div>
-              </div>
-              <div class="form-group">
-                <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
-                <div class="validation"></div>
-              </div>
-              <div class="text-center"><button type="submit">Send Message</button></div>
-            </form>
-          </div>
+            <form accept-charset="UTF-8" role="form" method="POST">
+                <fieldset>
+                  <div class="form-group">
+                    <div class="input-group input-group-lg">
+                      <span class="input-group-addon"><i class="fa fa-fw fa-user"></i></span>
+                      <input type="text" name="name" class="form-control" placeholder="Name" required="1">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="input-group input-group-lg">
+                      <span class="input-group-addon"><i class="fa fa-fw fa-envelope"></i></span>
+                      <input type="email" name="email" class="form-control" placeholder="Email" required="">
+                    </div>
+                  </div>
+                  
+                  <div class="form-group">
+                    <div class="input-group input-group-lg">
+                      <span class="input-group-addon"><i class="fa fa-fw fa-envelope"></i></span>
+                      <input type="text" name="subject" class="form-control" placeholder="Subject" required="1">
+                    </div>
+                  </div>
+                  
+                  <div class="form-group">
+                <textarea class="form-control" name="message"  placeholder="Message" required="1"></textarea>
+                
+                </div>
+                    
+                
+                  
+                  <input class="btn btn-lg btn-primary btn-block" type="submit" name="button" value="Sent">
+                </fieldset>
+              </form>
         </div>
+ <?php
+include 'connection.php';
 
+if(isset($_POST['button'])){
+  $name=$_POST['name'];
+  $email=$_POST['email'];
+  $subject=$_POST['subject'];
+  $message=$_POST['message'];
+ 
+  
+
+  $date=date("Y/m/d");
+  $query="insert into question(name,email, subject, message)
+      values('$name','$email','$subject','$message');";
+        $result = mysqli_query($connection,$query);
+  if($result){
+    echo "<script>window.alert('Data Added')</script>";
+    
+    }
+    else{
+           echo "<script>window.alert('Data not Added')</script>";
+    }
+  }
+
+
+
+?>
         <div class="col-md-3">
           <h4 class="text-uppercase">
               Follow Us On:

@@ -11,6 +11,20 @@
 
     <title>Admin</title>
 
+
+    <?php  
+   session_start();
+   $admin=$_SESSION["admin"] ;
+   
+   
+  if($admin=='admin'){
+
+  }
+  else{
+    echo '<script> location.replace("../../adminlogin.php"); </script>';
+  }
+   ?>
+
     <!-- Bootstrap Core CSS -->
     <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -52,10 +66,10 @@
             </div>
             <!-- /.navbar-header -->
 
-           
-                <!-- /.dropdown -->
-               
-                <!-- /.dropdown -->
+
+            <!-- /.dropdown -->
+
+            <!-- /.dropdown -->
             
             <!-- /.navbar-top-links -->
 
@@ -66,17 +80,17 @@
                             <div class="input-group custom-search-form">
                                 <input type="text" class="form-control" placeholder="Search...">
                                 <span class="input-group-btn">
-                                <button class="btn btn-default" type="button">
-                                    <i class="fa fa-search"></i>
-                                </button>
-                            </span>
+                                    <button class="btn btn-default" type="button">
+                                        <i class="fa fa-search"></i>
+                                    </button>
+                                </span>
                             </div>
                             <!-- /input-group -->
                         </li>
-                          <li>
+                        <li>
                             <a href="index.php"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
-                       
+
                         <li>
                             <a href="addQazi.php"><i class="fa fa-table fa-fw"></i> Add Qazi </a>
                         </li>
@@ -86,18 +100,21 @@
                         <li>
                             <a href="review.php"><i class="fa fa-table fa-fw"></i> Review Registration </a>
                         </li>
+                        <li>
+                            <a href="logout.php"><i class="fa fa-table fa-fw"></i> LogOut </a>
+                        </li>
                         
                         
                         
-                      
-                       
+
+
                     </ul>
                 </div>
-             
+
             </div>
-         
+
         </nav>
-    <div id="page-wrapper">
+        <div id="page-wrapper">
             <div class="row text-center">
                 <div class="col-lg-12">
                     <h1 class="page-header">Add Qazi</h1>
@@ -105,60 +122,91 @@
                 <!-- /.col-lg-12 -->
             </div>
             <div class="row">
-    <div class="col-lg-12">
-        <h3 class="text-center text-success"></h3>
-        <hr/>
-        <div class="well">
-          
-            <form>
+                <div class="col-lg-12">
+                    <h3 class="text-center text-success"></h3>
+                    <hr/>
+                    <div class="well">
+
+                        <form method="POST" >
+
+                          <div class="form-group text-center">
+                            <label for="exampleInputPassword1"><h4><b>Qazi Registration Number</b> </h4></label>
+                            <input type="text" name="RegID" class="form-control" id="exampleInputPassword1" placeholder="Govt Registraion Number" required="">
+                        </div>
+                        <div class="form-group text-center">
+                            <label for="exampleInputEmail1"><h4><b>Qazi Email address</b></h4> </label>
+                            <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Your Email " required="">
+
+                        </div>
+                        <div class="form-group">
+                            <div class=col-sm-10">
+                                <button type="submit" name="btn" class="btn btn-success btn-block"><h4><b> Save Qazi  Information</b></h4></button>
+                            </div>
+                        </div>
+                    </form>
+
+
+
+<?php
+include 'connection.php';
+
+if(isset($_POST['btn'])){
+  $RegID=$_POST['RegID'];
+  $email=$_POST['email'];
   
-  <div class="form-group text-center">
-    <label for="exampleInputPassword1"><h4><b>Qazi Registration Number</b> </h4></label>
-    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Govt Registraion Number">
-  </div>
-  <div class="form-group text-center">
-    <label for="exampleInputEmail1"><h4><b>Qazi Email address</b></h4> </label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Your Email ">
-   
-  </div>
-  <div class="form-group">
-                <div class=col-sm-10">
-                    <button type="submit" name="btn" class="btn btn-success btn-block"><h4><b> Save Qazi  Information</b></h4></button>
+  
+
+  $date=date("Y/m/d");
+  $query="insert into Qazi(RegID,email)
+      values('$RegID','$email');";
+        $result = mysqli_query($connection,$query);
+  if($result){
+    echo "<script>window.alert('Data Added')</script>";
+    
+    }
+    else{
+           echo "<script>window.alert('Data not Added')</script>";
+    }
+  }
+
+
+
+?>
+
+
+
                 </div>
             </div>
-          </form>
         </div>
+
+
     </div>
+
+
+
+
+
+
+
 </div>
-            
-
-                </div>
 
 
+<!-- jQuery -->
+<script src="../vendor/jquery/jquery.min.js"></script>
 
+<!-- Bootstrap Core JavaScript -->
+<script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
 
+<!-- Metis Menu Plugin JavaScript -->
+<script src="../vendor/metisMenu/metisMenu.min.js"></script>
 
+<!-- Morris Charts JavaScript -->
+<script src="../vendor/raphael/raphael.min.js"></script>
+<script src="../vendor/morrisjs/morris.min.js"></script>
+<script src="../data/morris-data.js"></script>
 
-        
-                    </div>
-                   
-
-    <!-- jQuery -->
-    <script src="../vendor/jquery/jquery.min.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
-
-    <!-- Metis Menu Plugin JavaScript -->
-    <script src="../vendor/metisMenu/metisMenu.min.js"></script>
-
-    <!-- Morris Charts JavaScript -->
-    <script src="../vendor/raphael/raphael.min.js"></script>
-    <script src="../vendor/morrisjs/morris.min.js"></script>
-    <script src="../data/morris-data.js"></script>
-
-    <!-- Custom Theme JavaScript -->
-    <script src="../dist/js/sb-admin-2.js"></script>
+<!-- Custom Theme JavaScript -->
+<script src="../dist/js/sb-admin-2.js"></script>
 
 </body>
 

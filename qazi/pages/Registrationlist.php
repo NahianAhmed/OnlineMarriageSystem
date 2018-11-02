@@ -1,3 +1,18 @@
+
+<?php  
+   session_start();
+   $admin=$_SESSION["Qid"] ;
+   
+   
+  if($_SESSION["Qid"]){
+
+  }
+  else{
+    echo '<script> location.replace("../../login.php"); </script>';
+  }
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -76,7 +91,9 @@
                         <li>
                             <a href=""><i class="fa fa-table fa-fw"></i> Divorce </a>
                         </li>
-                        
+                         <li>
+                            <a href="logout.php"><i class="fa fa-table fa-fw"></i> LogOut </a>
+                        </li>
                         
                         
                       

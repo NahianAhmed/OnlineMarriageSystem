@@ -10,6 +10,18 @@
     <meta name="author" content="">
 
     <title>Admin</title>
+    <?php  
+   session_start();
+   $admin=$_SESSION["admin"] ;
+   
+   
+  if($admin=='admin'){
+
+  }
+  else{
+    echo '<script> location.replace("../../adminlogin.php"); </script>';
+  }
+   ?>
 
     <!-- Bootstrap Core CSS -->
     <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -77,7 +89,9 @@
                             <a href="review.php"><i class="fa fa-table fa-fw"></i> Review Registration </a>
                         </li>
                         
-                        
+                        <li>
+                            <a href="logout.php"><i class="fa fa-table fa-fw"></i> LogOut </a>
+                        </li>
                         
                       
                        

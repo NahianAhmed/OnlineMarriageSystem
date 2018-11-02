@@ -1,7 +1,25 @@
+
+<?php session_start();?> 
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+
+
+ <?php  
+   
+   $admin=$_SESSION["admin"] ;
+   
+   
+  if($_SESSION["admin"]){
+    
+
+  }
+  else{
+    echo '<script> location.replace("../../adminlogin.php"); </script>';
+  }
+   ?>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -86,7 +104,9 @@
                         <li>
                             <a href="review.php"><i class="fa fa-table fa-fw"></i> Review Registration </a>
                         </li>
-                        
+                        <li>
+                            <a href="logout.php"><i class="fa fa-table fa-fw"></i> LogOut </a>
+                        </li>
                         
                         
                       
@@ -102,6 +122,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <h1 class="page-header">Dashboard</h1>
+                    
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
