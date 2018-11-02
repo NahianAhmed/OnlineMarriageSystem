@@ -103,78 +103,89 @@
     <div id="page-wrapper">
             <div class="row text-center">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Add Qazi</h1>
+                    <h1 class="page-header">Kazi Information</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
+            <!-- /.row -->
             <div class="row">
-    <div class="col-lg-12">
-        <h3 class="text-center text-success"></h3>
-        <hr/>
-
-        <input type="text" id="myInput"  placeholder="Search for names.."  class="form-control">
-
-<br>
-<table class="table table-bordered" >
-  <thead class="text-center">
-    <tr>
-      <th>Reg. No:</th>
-      <th>Qazi  Name</th>
-      <th> Qazi Email</th>
-      <th>Action</th>
-    </tr>
-  </thead>
-  <tbody id="myTable">
- 
-<?php 
-include "connection.php";
-$query=("select * from qazilist ");
-$result=mysqli_query($connection,$query);
-if ($result) {
-  while ($row = mysqli_fetch_array($result)) {
-$kazi_id=$row['id'];
-
-    echo "
-    <tr>
-      <td>".$row['RegID']."</td>
-      <td>".$row['name']."</td>
-      <td>".$row['email']."</td>
-      
-      
-      <td>
-                <a href='kaziInfo.php?kazi_id=$kazi_id' class='btn btn-info' title='Qazi Details View'>
-                    <span class='glyphicon glyphicon-eye-open'></span>
-                </a>
-                
-                
-            </td> 
-    </tr>
-  ";
+<table class="table table-hover table-bordered">
   
+  
+
+
+<?php
+
+include "connection.php";
+
+if(isset($_GET['kazi_id'])){
+  $kazi_id = $_GET['kazi_id'];
+  /*$_SESSION["bikeid"]=$product_id;*/
+  /*echo $product_id;*/
+  
+  $get_kazi = "select * from qazilist where id='$kazi_id'";
+  
+  $run_kazi = mysqli_query($connection, $get_kazi);
+  
+    
+  while($row=mysqli_fetch_array($run_kazi)){
+  
+  $kazi_id=$row['id'];
+  $kazi_Rid=$row['RegID'];
+  
+  $kazi_name=$row['name'];
+  $kazi_email=$row['email'];
+
+  
+  echo "
+
+
+ 
+  
+  <tbody>
+    <tr>
+      <th>Kazi Name: </th>
+      <td>$kazi_name</td>
+     
+      
+    </tr>
+    <tr>
+      <th>Kazi Reg. No: </th>
+      <td> $kazi_Rid</td>
+      
+    </tr>
+    <tr>
+      <th>Kazi E-mail</th>
+      
+      <td>$kazi_email</td>
+    </tr>
+    
+  </tbody>
+</table>
+
+  ";
+    
+  }
   }
   
-}
-else{
-  echo "<h6 >NO RECORD FOUND</h6>";
-}
+    
+  
+    
+    
+
+
 
 ?>
 
 
-
-
-
-
-
-
-  </tbody>
-</table>
-
-    </div>
-</div>
+                
+               
             
-
+                       
+             </div>
+               
                 </div>
+               
 
 
 

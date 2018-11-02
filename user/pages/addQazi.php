@@ -10,18 +10,7 @@
     <meta name="author" content="">
 
     <title>Admin</title>
-<?php  
-   session_start();
-   $admin=$_SESSION["admin"] ;
-   
-   
-  if($admin=='admin'){
 
-  }
-  else{
-    echo '<script> location.replace("../../adminlogin.php"); </script>';
-  }
-   ?>
     <!-- Bootstrap Core CSS -->
     <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -59,7 +48,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.php">Admin</a>
+                <a class="navbar-brand" href="index.html">Admin</a>
             </div>
             <!-- /.navbar-header -->
 
@@ -73,8 +62,18 @@
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
-                        </br>
-                         <li>
+                        <li class="sidebar-search">
+                            <div class="input-group custom-search-form">
+                                <input type="text" class="form-control" placeholder="Search...">
+                                <span class="input-group-btn">
+                                <button class="btn btn-default" type="button">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </span>
+                            </div>
+                            <!-- /input-group -->
+                        </li>
+                          <li>
                             <a href="index.php"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
                        
@@ -88,9 +87,7 @@
                             <a href="review.php"><i class="fa fa-table fa-fw"></i> Review Registration </a>
                         </li>
                         
-                        <li>
-                            <a href="logout.php"><i class="fa fa-table fa-fw"></i> LogOut </a>
-                        </li>
+                        
                         
                       
                        
@@ -111,65 +108,26 @@
     <div class="col-lg-12">
         <h3 class="text-center text-success"></h3>
         <hr/>
-
-        <input type="text" id="myInput"  placeholder="Search for names.."  class="form-control">
-
-<br>
-<table class="table table-bordered" >
-  <thead class="text-center">
-    <tr>
-      <th>Reg. No:</th>
-      <th>Qazi  Name</th>
-      <th> Qazi Email</th>
-      <th>Action</th>
-    </tr>
-  </thead>
-  <tbody id="myTable">
- 
-<?php 
-include "connection.php";
-$query=("select * from qazilist ");
-$result=mysqli_query($connection,$query);
-if ($result) {
-  while ($row = mysqli_fetch_array($result)) {
-$kazi_id=$row['id'];
-
-    echo "
-    <tr>
-      <td>".$row['RegID']."</td>
-      <td>".$row['name']."</td>
-      <td>".$row['email']."</td>
-      
-      
-      <td>
-                <a href='kaziInfo.php?kazi_id=$kazi_id' class='btn btn-info' title='Qazi Details View'>
-                    <span class='glyphicon glyphicon-eye-open'></span>
-                </a>
-                
-                
-            </td> 
-    </tr>
-  ";
+        <div class="well">
+          
+            <form>
   
-  }
-  
-}
-else{
-  echo "<h6 >NO RECORD FOUND</h6>";
-}
-
-?>
-
-
-
-
-
-
-
-
-  </tbody>
-</table>
-
+  <div class="form-group text-center">
+    <label for="exampleInputPassword1"><h4><b>Qazi Registration Number</b> </h4></label>
+    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Govt Registraion Number">
+  </div>
+  <div class="form-group text-center">
+    <label for="exampleInputEmail1"><h4><b>Qazi Email address</b></h4> </label>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Your Email ">
+   
+  </div>
+  <div class="form-group">
+                <div class=col-sm-10">
+                    <button type="submit" name="btn" class="btn btn-success btn-block"><h4><b> Save Qazi  Information</b></h4></button>
+                </div>
+            </div>
+          </form>
+        </div>
     </div>
 </div>
             
@@ -201,23 +159,6 @@ else{
 
     <!-- Custom Theme JavaScript -->
     <script src="../dist/js/sb-admin-2.js"></script>
-    <script>
-    $(document).ready(function () {
-  $('#dtBasicExample').DataTable();
-  $('.dataTables_length').addClass('bs-select');
-});
-
-</script>
-<script>
-$(document).ready(function(){
-  $("#myInput").on("keyup", function() {
-    var value = $(this).val().toLowerCase();
-    $("#myTable tr").filter(function() {
-      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-    });
-  });
-});
-</script>
 
 </body>
 

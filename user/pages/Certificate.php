@@ -9,19 +9,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Admin</title>
-<?php  
-   session_start();
-   $admin=$_SESSION["admin"] ;
-   
-   
-  if($admin=='admin'){
+    <title>User</title>
 
-  }
-  else{
-    echo '<script> location.replace("../../adminlogin.php"); </script>';
-  }
-   ?>
     <!-- Bootstrap Core CSS -->
     <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -59,7 +48,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.php">Admin</a>
+                <a class="navbar-brand" href="index.php">User</a>
             </div>
             <!-- /.navbar-header -->
 
@@ -73,117 +62,82 @@
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
-                        </br>
+                        
                          <li>
                             <a href="index.php"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
                        
                         <li>
-                            <a href="addQazi.php"><i class="fa fa-table fa-fw"></i> Add Qazi </a>
-                        </li>
-                        <li>
-                            <a href="qazitable.php"><i class="fa fa-table fa-fw"></i> Qazi List </a>
-                        </li>
-                        <li>
-                            <a href="review.php"><i class="fa fa-table fa-fw"></i> Review Registration </a>
+                            <a href="Certificate.php"><i class="fa fa-table fa-fw"></i> Marrage Certificate</a>
                         </li>
                         
-                        <li>
-                            <a href="logout.php"><i class="fa fa-table fa-fw"></i> LogOut </a>
-                        </li>
+                        
+                        
                         
                       
                        
                     </ul>
                 </div>
-             
+                <!-- /.sidebar-collapse -->
             </div>
-         
+            <!-- /.navbar-static-side -->
         </nav>
-    <div id="page-wrapper">
-            <div class="row text-center">
-                <div class="col-lg-12">
-                    <h1 class="page-header">Add Qazi</h1>
-                </div>
-                <!-- /.col-lg-12 -->
-            </div>
+
+        <div id="page-wrapper">
+            
+            <!-- /.row -->
             <div class="row">
-    <div class="col-lg-12">
-        <h3 class="text-center text-success"></h3>
-        <hr/>
-
-        <input type="text" id="myInput"  placeholder="Search for names.."  class="form-control">
-
-<br>
-<table class="table table-bordered" >
-  <thead class="text-center">
-    <tr>
-      <th>Reg. No:</th>
-      <th>Qazi  Name</th>
-      <th> Qazi Email</th>
-      <th>Action</th>
-    </tr>
-  </thead>
-  <tbody id="myTable">
- 
-<?php 
-include "connection.php";
-$query=("select * from qazilist ");
-$result=mysqli_query($connection,$query);
-if ($result) {
-  while ($row = mysqli_fetch_array($result)) {
-$kazi_id=$row['id'];
-
-    echo "
-    <tr>
-      <td>".$row['RegID']."</td>
-      <td>".$row['name']."</td>
-      <td>".$row['email']."</td>
-      
-      
-      <td>
-                <a href='kaziInfo.php?kazi_id=$kazi_id' class='btn btn-info' title='Qazi Details View'>
-                    <span class='glyphicon glyphicon-eye-open'></span>
-                </a>
-                
-                
-            </td> 
-    </tr>
-  ";
-  
-  }
-  
-}
-else{
-  echo "<h6 >NO RECORD FOUND</h6>";
-}
-
-?>
-
-
-
-
-
-
-
-
-  </tbody>
-</table>
-
-    </div>
-</div>
             
 
-                </div>
+   <div style="width:800px; height:600px; padding:20px;  border: 10px solid #787878">
+<div style="width:750px; height:550px; padding:20px;  border: 5px solid #787878">
+      <div style="text-align:center">
+        <img src="logo.png" width="100" height="100"><br>
+           <span style="font-size:18px">Government of the People's Pepublic of Bangladesh</span><br>
+           <span style="font-size:30px;font-weight:bold">Office of the Muslim Marriage Registrar & Kazi</span><br>
+           <span style="font-size:30px">Dhaka</span><br>
+            <span style="font-size:50px; font-weight:bold; font-family:brush script mt""><u> Marriage Certificate</u></span><br>
+      </div>
+       
+       <div style="text-align:justify;">
+        <span style="font-size:18px ">
+This is Certify That...............................................   Son of.......................................
 
+Date of Birth………………………… ...............Married with……………...................................
+Daughter/Son of…………………………………..
+Date of Birth…………………. The Marriage was Solemnized on…………… and Registeredin my office on ……….being Registration serial no…………. In the year ……………in Registrar Address.
+I wish them every success in life.
 
+</span><br/><br/><br/>
+<div class="col-md-6">
+    <span style="font-size:18px"> Date of Issue:   </span>
+</div>
+<div class="col-md-6" >
+    <span style="font-size:18px">Designation of Kazi
 
-
-
-
-        
+  </span>
+</div>
+                                       
+      </div>
+       
+       
+</div>
+</div>
+                
+           
+            
+                        
                     </div>
-                   
+                    <!-- /.panel .chat-panel -->
+                </div>
+                <!-- /.col-lg-4 -->
+         
+            <!-- /.row -->
+       </div>
+        <!-- /#page-wrapper -->
+
+   
+    <!-- /#wrapper -->
 
     <!-- jQuery -->
     <script src="../vendor/jquery/jquery.min.js"></script>
@@ -201,23 +155,6 @@ else{
 
     <!-- Custom Theme JavaScript -->
     <script src="../dist/js/sb-admin-2.js"></script>
-    <script>
-    $(document).ready(function () {
-  $('#dtBasicExample').DataTable();
-  $('.dataTables_length').addClass('bs-select');
-});
-
-</script>
-<script>
-$(document).ready(function(){
-  $("#myInput").on("keyup", function() {
-    var value = $(this).val().toLowerCase();
-    $("#myTable tr").filter(function() {
-      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-    });
-  });
-});
-</script>
 
 </body>
 
