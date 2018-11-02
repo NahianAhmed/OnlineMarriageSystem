@@ -133,30 +133,21 @@
                                     <i class="fa fa-list fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">26</div>
+                                    <div class="huge">
+                                       <?php
+                                     include "connection.php";
+                                     $d26=$_SESSION["Qid"] ;
+                                     $query=("SELECT COUNT(*) as total FROM marriagelist where d26='$d26';");
+                                     $result=mysqli_query($connection,$query);
+                                     $row = mysqli_fetch_array($result);
+                                     echo $row['total'];
+                                     ?> 
+
+
+
+
+                                    </div>
                                     
-                                </div>
-                            </div>
-                        </div>
-                        <a href="#">
-                            <div class="panel-footer">
-                                <span class="pull-left">Total Qazi</span>
-                                
-                                <div class="clearfix"></div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class=" col-md-6">
-                    <div class="panel panel-green">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <div class="col-xs-3">
-                                    <i class="fa fa-list fa-5x"></i>
-                                </div>
-                                <div class="col-xs-9 text-right">
-                                    <div class="huge">12</div>
-                                   
                                 </div>
                             </div>
                         </div>
@@ -169,6 +160,7 @@
                         </a>
                     </div>
                 </div>
+                
                 
                 
             <!-- /.row -->
