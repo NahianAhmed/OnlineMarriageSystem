@@ -161,7 +161,6 @@ if(isset($_GET['kazi_id'])){
     </tr>
     
   </tbody>
-</table>
 
   ";
     
@@ -177,6 +176,7 @@ if(isset($_GET['kazi_id'])){
 
 ?>
 
+</table>
 
                 
                

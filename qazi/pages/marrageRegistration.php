@@ -132,144 +132,160 @@
     <input type="text" class="form-control" name="d1" id="exampleInputPassword1" placeholder="" required="" >
   </div>
   <div class="form-group">
-    <label for="exampleInputPassword1"><h4><b>02.Name of the bridegroom and his father’s name with their respective residence:</b></h4> </label>
+    <label for="exampleInputPassword1"><h4><b>02.Name of the bridegroom </b></h4> </label>
+    <input type="text" class="form-control" name="d2" id="exampleInputPassword1" placeholder=""  required="">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1"><h4><b>03.Bridegroom  father’s name</b></h4> </label>
+    <input type="text" class="form-control" name="d2" id="exampleInputPassword1" placeholder=""  required="">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1"><h4><b>04.Address of Bridegroom:</b></h4> </label>
     <input type="text" class="form-control" name="d2" id="exampleInputPassword1" placeholder=""  required="">
   </div>
     <div class="form-group">
-    <label for="exampleInputPassword1"><h4><b>03.Age of bridegroom:</b></h4> </label>
+    <label for="exampleInputPassword1"><h4><b>05.Age of bridegroom:</b></h4> </label>
     <input type="text" class="form-control" name="d3" id="exampleInputPassword1" placeholder="" required="">
   </div>
 
   <div class="form-group">
-    <label for="exampleInputPassword1"><h4><b>04.The name of the bride and her father’s name with their residence:</b></h4> </label>
+    <label for="exampleInputPassword1"><h4><b>06.The name of the bride :</b></h4> </label>
+    <input type="text" class="form-control" name="d4" id="exampleInputPassword1" placeholder="" required="">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1"><h4><b>07.Bride  father’s name :</b></h4> </label>
+    <input type="text" class="form-control" name="d4" id="exampleInputPassword1" placeholder="" required="">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1"><h4><b>08.Address of Bride:</b></h4> </label>
     <input type="text" class="form-control" name="d4" id="exampleInputPassword1" placeholder="" required="">
   </div>
 
 
 <div class="form-group">
-    <label for="exampleInputPassword1"><h4><b>05. Wheather the bride is a maiden, a window or a divorce:</b></h4> </label>
+    <label for="exampleInputPassword1"><h4><b>09. Wheather the bride is a maiden, a window or a divorce:</b></h4> </label>
     <input type="text" class="form-control" name="d5" id="exampleInputPassword1" placeholder="" required>
   </div>
 
 <div class="form-group">
-    <label for="exampleInputPassword1"><h4><b>06.Age of the bride:</b></h4> </label>
+    <label for="exampleInputPassword1"><h4><b>10.Age of the bride:</b></h4> </label>
     <input type="text" class="form-control"  name="d6" id="exampleInputPassword1" placeholder="" required>
   </div>
 
 
 <div class="form-group">
-    <label for="exampleInputPassword1"><h4><b>07.Name or the wakil ,if any, appointed of the bride, his father’s name and his residence</b></h4> </label>
+    <label for="exampleInputPassword1"><h4><b>11.Name or the wakil ,if any, appointed of the bride, his father’s name and his residence</b></h4> </label>
     <input type="text" class="form-control" name="d7" id="exampleInputPassword1" placeholder="" required>
   </div>
 
 
 <div class="form-group">
-    <label for="exampleInputPassword1"><h4><b>08.The names of the witness to the appointment of the bride’s Wakil with their father’s names, their residences and their relationship with bride:</b></h4> </label>
+    <label for="exampleInputPassword1"><h4><b>12.The names of the witness to the appointment of the bride’s Wakil with their father’s names, their residences and their relationship with bride:</b></h4> </label>
     <textarea type="text" class="form-control" name="d8" id="exampleInputPassword1" placeholder="" required></textarea>
   </div>
 
 
 <div class="form-group">
-    <label for="exampleInputPassword1"><h4><b>09. Name of the wakil ,if any, appointed by the bridegroom, his father’s name and his residence :</b></h4> </label>
+    <label for="exampleInputPassword1"><h4><b>13. Name of the wakil ,if any, appointed by the bridegroom, his father’s name and his residence :</b></h4> </label>
     <input type="text" class="form-control" name="d9" id="exampleInputPassword1" placeholder="" required>
   </div>
 
 
 
 <div class="form-group">
-    <label for="exampleInputPassword1"><h4><b>10.The names of the witness to the appointment of the bridgrgroom’s wakil with their father’s names and their residence: </b></h4> </label>
+    <label for="exampleInputPassword1"><h4><b>14.The names of the witness to the appointment of the bridgrgroom’s wakil with their father’s names and their residence: </b></h4> </label>
     <textarea type="text" class="form-control" name="d10" id="exampleInputPassword1" placeholder="" required></textarea>
   </div>
 
 
 
 <div class="form-group">
-    <label for="exampleInputPassword1"><h4><b>11.Names of the witness of the marriage ,their father’s names and their residence:</b></h4> </label>
+    <label for="exampleInputPassword1"><h4><b>15.Names of the witness of the marriage ,their father’s names and their residence:</b></h4> </label>
     <textarea type="text" class="form-control" name="d11" id="exampleInputPassword1" placeholder="" required></textarea>
   </div>
 
 
 
 <div class="form-group">
-    <label for="exampleInputPassword1"><h4><b>12.Date on which the marriage was contracted:</b></h4> </label>
+    <label for="exampleInputPassword1"><h4><b>16.Date on which the marriage was contracted:</b></h4> </label>
     <input type="text" class="form-control" name="d12" id="exampleInputPassword1" placeholder="" required>
   </div>
 
 
 
 <div class="form-group">
-    <label for="exampleInputPassword1"><h4><b>13.Amount of dower:</b></h4> </label>
+    <label for="exampleInputPassword1"><h4><b>17.Amount of dower:</b></h4> </label>
     <input type="text" class="form-control" name="d13" id="exampleInputPassword1" placeholder="" required>
   </div>
 
 <div class="form-group">
-    <label for="exampleInputPassword1"><h4><b>14.How much of the dower is muajjal (prompt) and how much muwajjal (deferred):</b></h4> </label>
+    <label for="exampleInputPassword1"><h4><b>18.How much of the dower is muajjal (prompt) and how much muwajjal (deferred):</b></h4> </label>
     <input type="text" class="form-control" name="d14" id="exampleInputPassword1" placeholder="" required>
   </div>
 
 
 <div class="form-group">
-    <label for="exampleInputPassword1"><h4><b>15.Whether any portion of the dower was paid at the time of marriage if so, How much?</b></h4> </label>
+    <label for="exampleInputPassword1"><h4><b>19.Whether any portion of the dower was paid at the time of marriage if so, How much?</b></h4> </label>
     <input type="text" class="form-control" name="d15" id="exampleInputPassword1" placeholder="" required>
   </div>
 
 
   <div class="form-group">
-    <label for="exampleInputPassword1"><h4><b>16.whether any property was given in lieu the whole or any portion of the dower with specification of the name & it's valuation agreed to between the parties?</b></h4> </label>
+    <label for="exampleInputPassword1"><h4><b>20.whether any property was given in lieu the whole or any portion of the dower with specification of the name & it's valuation agreed to between the parties?</b></h4> </label>
     <input type="text" class="form-control" name="d16" id="exampleInputPassword1" placeholder="" required>
   </div>
 
 
   <div class="form-group">
-    <label for="exampleInputPassword1"><h4><b>17.special condition if any:</b></h4> </label>
+    <label for="exampleInputPassword1"><h4><b>21.special condition if any:</b></h4> </label>
     <input type="text" class="form-control" name="d17" id="exampleInputPassword1" placeholder="" required>
   </div>
 
 
   <div class="form-group">
-    <label for="exampleInputPassword1"><h4><b>18.Whether the husband has delegated the power of divorce to the wife, if so, under what condition:</b></h4> </label>
+    <label for="exampleInputPassword1"><h4><b>22.Whether the husband has delegated the power of divorce to the wife, if so, under what condition:</b></h4> </label>
     <input type="text" class="form-control" name="d18" id="exampleInputPassword1" placeholder="" required>
   </div>
 
 
   <div class="form-group">
-    <label for="exampleInputPassword1"><h4><b>19.Whether the husband's right of divorce is in any way curtailed?</b></h4> </label>
+    <label for="exampleInputPassword1"><h4><b>23.Whether the husband's right of divorce is in any way curtailed?</b></h4> </label>
     <input type="text" class="form-control" name="d19" id="exampleInputPassword1" placeholder="" required>
   </div>
 
 
   <div class="form-group">
-    <label for="exampleInputPassword1"><h4><b>20.Whether any document was drawn up at the time marriage relating to dower, Maintenance etc. if so, contents there of in brief:</b></h4> </label>
+    <label for="exampleInputPassword1"><h4><b>24.Whether any document was drawn up at the time marriage relating to dower, Maintenance etc. if so, contents there of in brief:</b></h4> </label>
     <input type="text" class="form-control" name="d20" id="exampleInputPassword1" placeholder="" required>
   </div>
 
 
   <div class="form-group">
-    <label for="exampleInputPassword1"><h4><b>21.Whether the bridegroom has any existing wife and if so whether he has secured the permission of the arbitration council under the Muslim famiy laws ordinance 1961,to contract another marriage?</b></h4> </label>
+    <label for="exampleInputPassword1"><h4><b>25.Whether the bridegroom has any existing wife and if so whether he has secured the permission of the arbitration council under the Muslim famiy laws ordinance 1961,to contract another marriage?</b></h4> </label>
     <input type="text" class="form-control" name="d21" id="exampleInputPassword1" placeholder="" required>
   </div>
 
 
   <div class="form-group">
-    <label for="exampleInputPassword1"><h4><b>22.Number and date of the communication conveying to the bridegroom the permission of the arbitration council to contract another marriage:</b></h4> </label>
+    <label for="exampleInputPassword1"><h4><b>26.Number and date of the communication conveying to the bridegroom the permission of the arbitration council to contract another marriage:</b></h4> </label>
     <input type="text" class="form-control" name="d22" id="exampleInputPassword1" placeholder="" required>
   </div>
 
 
   <div class="form-group">
-    <label for="exampleInputPassword1"><h4><b>23.Name of the address of the person by whom the marriage was solemnized and his father & mother:</b></h4> </label>
+    <label for="exampleInputPassword1"><h4><b>27.Name of the address of the person by whom the marriage was solemnized and his father & mother:</b></h4> </label>
     <input type="text" class="form-control" name="d23" id="exampleInputPassword1" placeholder="" required="">
   </div>
 
 
   <div class="form-group">
-    <label for="exampleInputPassword1"><h4><b>24.Date of registration of marriage: </b></h4> </label>
+    <label for="exampleInputPassword1"><h4><b>28.Date of registration of marriage: </b></h4> </label>
     <input type="text" class="form-control" name="d24" id="exampleInputPassword1" placeholder="" required="">
   </div>
 
 
   <div class="form-group">
-    <label for="exampleInputPassword1"><h4><b>25.Registration fees paid::</b></h4> </label>
+    <label for="exampleInputPassword1"><h4><b>29.Registration fees paid::</b></h4> </label>
     <input type="text" class="form-control" name="d25" id="exampleInputPassword1" placeholder="" required="">
   </div>
 

@@ -107,7 +107,7 @@
     <div id="page-wrapper">
             <div class="row text-center">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Registration List</h1>
+                    <h1 class="page-header">Registration Details</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -116,59 +116,81 @@
         <h3 class="text-center text-success"></h3>
         <hr/>
 
-        <input type="text" id="myInput"  placeholder="Search for names.."  class="form-control">
+       
 
-<br>
-<table class="table table-bordered" >
-  <thead class="text-center">
-    <tr>
-      <th>Reg. No:</th>
-       <th>Date</th>
-        <th>Bridegroom's info</th>
-      <th>Action</th>
-    </tr>
-  </thead>
-  <tbody id="myTable">
- 
+<table class="table table-hover table-bordered">
 
-<?php 
+<?php
+
 include "connection.php";
-$d26=$_SESSION["Qid"] ;
-$query=("select * from marriagelist where d26='$d26'");
-$result=mysqli_query($connection,$query);
-if ($result) {
-  while ($row = mysqli_fetch_array($result)) {
 
-$registration_id=$row['id'];
-    echo "
-    <tr>
-      <td>".$row['RegNo']."</td>
-      <td>".$row['date']."</td>
-      <td>".$row['d2']."</td>
-      
-      
-      <td>
-                <a href='marrageinfo.php?marrage_id=$registration_id' class='btn btn-info' title='Registration Details View'>
-                    <span class='glyphicon glyphicon-eye-open'></span>
-                </a>
-                
-                
-            </td> 
-    </tr>
-  ";
+if(isset($_GET['marrage_id'])){
+  $registration_id = $_GET['marrage_id'];
+  /*$_SESSION["bikeid"]=$product_id;*/
+  /*echo $product_id;*/
   
+  $get_marrageinfo = "select * from marriagelist where id='$registration_id'";
+  
+  $run_marrageinfo = mysqli_query($connection, $get_marrageinfo);
+  
+    
+  while($row=mysqli_fetch_array($run_marrageinfo)){
+  
+  $registration_id=$row['id'];
+  $registration_date=$row['date'];
+  $registration_RegNo=$row['RegNo'];
+  $registration_ages=$row['d3'];
+  $registration_aged=$row['d6'];
+  $registration_dower=$row['13'];
+ 
+  
+
+  
+  echo "
+
+
+ 
+  
+  <tbody>
+    <tr>
+      <th>Marrage Registration Number </th>
+      <td>$registration_RegNo</td>
+     
+      
+    </tr>
+    <tr>
+      <th>Marrage Date</th>
+      <td> $registration_date</td>
+      
+    </tr>
+    <tr>
+      <th>Age of Bridegroom</th>
+      
+      <td>$registration_ages</td>
+    </tr>
+    <tr>
+      <th>Age of the Bride</th>
+      
+      <td>$registration_aged</td>
+    </tr>
+    
+  </tbody>
+
+  ";
+    
+  }
   }
   
-}
-else{
-  echo "<h6 >NO RECORD FOUND</h6>";
-}
+    
+  
+    
+    
+
+
 
 ?>
-
-  </tbody>
 </table>
-
+  
     </div>
 </div>
             
