@@ -1,18 +1,3 @@
-
-<?php  
-   session_start();
-   $d26=$_SESSION["Qid"] ;
-   
-   
-  if($_SESSION["Qid"]){
-
-  }
-  else{
-    echo '<script> location.replace("../../login.php"); </script>';
-  }
-?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,8 +9,19 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Kazi Page</title>
+    <title>Admin</title>
+<?php  
+   session_start();
+   $admin=$_SESSION["admin"] ;
+   
+   
+  if($admin=='admin'){
 
+  }
+  else{
+    echo '<script> location.replace("../../adminlogin.php"); </script>';
+  }
+   ?>
     <!-- Bootstrap Core CSS -->
     <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -63,7 +59,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.php">Kazi</a>
+                <a class="navbar-brand" href="index.php">Admin</a>
             </div>
             <!-- /.navbar-header -->
 
@@ -83,18 +79,18 @@
                         </li>
                        
                         <li>
-                            <a href="marrageRegistration.php"><i class="fa fa-table fa-fw"></i> Marrage Registration </a>
+                            <a href="addQazi.php"><i class="fa fa-table fa-fw"></i> Add Qazi </a>
                         </li>
                         <li>
-                            <a href="Registrationlist.php"><i class="fa fa-table fa-fw"></i> Registration List </a>
+                            <a href="qazitable.php"><i class="fa fa-table fa-fw"></i> Qazi List </a>
                         </li>
                         <li>
-                            <a href=""><i class="fa fa-table fa-fw"></i> Divorce </a>
-                        </li>
-                         <li>
-                            <a href="logout.php"><i class="fa fa-table fa-fw"></i> LogOut </a>
+                            <a href="review.php"><i class="fa fa-table fa-fw"></i> Review Registration </a>
                         </li>
                         
+                        <li>
+                            <a href="logout.php"><i class="fa fa-table fa-fw"></i> LogOut </a>
+                        </li>
                         
                       
                        
@@ -107,47 +103,47 @@
     <div id="page-wrapper">
             <div class="row text-center">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Registration Details</h1>
+                    <h1 class="page-header">Registration Information</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
+            <!-- /.row -->
             <div class="row">
-    <div class="col-lg-12">
-        <h3 class="text-center text-success"></h3>
-        <hr/>
-
-       
-
 <table class="table table-hover table-bordered">
+  
+  
+
 
 <?php
 
 include "connection.php";
 
-if(isset($_GET['marrage_id'])){
-  $registration_id = $_GET['marrage_id'];
+if(isset($_GET['Registration_id'])){
+  $Registration_id = $_GET['Registration_id'];
   /*$_SESSION["bikeid"]=$product_id;*/
   /*echo $product_id;*/
   
-  $get_marrageinfo = "select * from marriagelist where id='$registration_id'";
+  $get_info = "select * from marriagelist where id='$Registration_id'";
   
-  $run_marrageinfo = mysqli_query($connection, $get_marrageinfo);
+  $run_info = mysqli_query($connection, $get_info);
   
     
-  while($row=mysqli_fetch_array($run_marrageinfo)){
+  while($row=mysqli_fetch_array($run_info)){
   
   $registration_id=$row['id'];
-  $registration_sname=$row['d2'];
-  $registration_dname=$row['d4'];
-
-  $registration_date=$row['date'];
+  $registration_names=$row['d2'];
+  $registration_named=$row['d4'];
+  $registration_sfather=$row['f1'];
+  $registration_dfather=$row['f2'];
+$registration_date=$row['date'];
   $registration_RegNo=$row['RegNo'];
   $registration_ages=$row['d3'];
   $registration_aged=$row['d6'];
-  $registration_dower=$row['13'];
- 
-  
+  $registration_dower=$row['d13'];
+  $registration_adress=$row['a1'];
+  $registration_adress=$row['a2'];
 
+ 
   
   echo "
 
@@ -156,20 +152,20 @@ if(isset($_GET['marrage_id'])){
   
   <tbody>
     <tr>
-      <th>Marrage Registration Number </th>
-      <td>$registration_RegNo</td>
+      <th>Marrage Registraion ID: </th>
+      <td>$registration_id</td>
      
       
     </tr>
     <tr>
       <th>Name of the bridegroom </th>
-      <td>$registration_sname</td>
+      <td>$registration_names</td>
      
       
     </tr>
     <tr>
       <th>The name of the bride </th>
-      <td>$registration_dname</td>
+      <td>$registration_named</td>
      
       
     </tr>
@@ -188,7 +184,21 @@ if(isset($_GET['marrage_id'])){
       
       <td>$registration_aged</td>
     </tr>
-    
+    <tr>
+      <th>Amount of Dower</th>
+      
+      <td>$registration_dower</td>
+    </tr>
+    <tr>
+      <th>Adress of Bridegroom</th>
+      
+      <td>$registration_adress</td>
+    </tr>
+    <tr>
+      <th>Adress of Bride</th>
+      
+      <td>$registration_adress</td>
+    </tr>
   </tbody>
 
   ";
@@ -204,13 +214,17 @@ if(isset($_GET['marrage_id'])){
 
 
 ?>
-</table>
-  
-    </div>
-</div>
-            
 
+</table>
+
+                
+               
+            
+                       
+             </div>
+               
                 </div>
+               
 
 
 

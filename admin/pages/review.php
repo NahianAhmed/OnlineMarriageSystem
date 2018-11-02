@@ -80,10 +80,10 @@
                         </li>
                        
                         <li>
-                            <a href="addQazi.php"><i class="fa fa-table fa-fw"></i> Add Qazi </a>
+                            <a href="addQazi.php"><i class="fa fa-table fa-fw"></i> Add Kazi </a>
                         </li>
                         <li>
-                            <a href="qazitable.php"><i class="fa fa-table fa-fw"></i> Qazi List </a>
+                            <a href="qazitable.php"><i class="fa fa-table fa-fw"></i> Kazi List </a>
                         </li>
                         <li>
                             <a href="review.php"><i class="fa fa-table fa-fw"></i> Review Registration </a>
@@ -104,7 +104,7 @@
     <div id="page-wrapper">
             <div class="row text-center">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Add Qazi</h1>
+                    <h1 class="page-header">Review Registration</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -125,19 +125,38 @@
   </thead>
   <tbody id="myTable">
  
+   <?php 
+include "connection.php";
+$query=("select * from marriagelist ");
+$result=mysqli_query($connection,$query);
+if ($result) {
+  while ($row = mysqli_fetch_array($result)) {
+$Registration_id=$row['id'];
+
+    echo "
     <tr>
-      <td>a</td>
-     
+      <td>".$row['RegNo']."</td>
+      
       
       
       <td>
-                <a href="" class="btn btn-info" title="Qazi Details View">
-                    <span class="glyphicon glyphicon-eye-open"></span>
+                <a href='marriageInfo.php?Registration_id=$Registration_id' class='btn btn-info' title='Qazi Details View'>
+                    <span class='glyphicon glyphicon-eye-open'></span>
                 </a>
                 
                 
             </td> 
     </tr>
+  ";
+  
+  }
+  
+}
+else{
+  echo "<h6 >NO RECORD FOUND</h6>";
+}
+
+?>
 
 
   </tbody>

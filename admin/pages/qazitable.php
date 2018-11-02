@@ -79,10 +79,10 @@
                         </li>
                        
                         <li>
-                            <a href="addQazi.php"><i class="fa fa-table fa-fw"></i> Add Qazi </a>
+                            <a href="addQazi.php"><i class="fa fa-table fa-fw"></i> Add Kazi </a>
                         </li>
                         <li>
-                            <a href="qazitable.php"><i class="fa fa-table fa-fw"></i> Qazi List </a>
+                            <a href="qazitable.php"><i class="fa fa-table fa-fw"></i> Kazi List </a>
                         </li>
                         <li>
                             <a href="review.php"><i class="fa fa-table fa-fw"></i> Review Registration </a>
@@ -103,7 +103,7 @@
     <div id="page-wrapper">
             <div class="row text-center">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Add Qazi</h1>
+                    <h1 class="page-header">Kazi List</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -119,8 +119,8 @@
   <thead class="text-center">
     <tr>
       <th>Reg. No:</th>
-      <th>Qazi  Name</th>
-      <th> Qazi Email</th>
+      <th>Kazi  Name</th>
+      <th> Kazi Email</th>
       <th>Action</th>
     </tr>
   </thead>

@@ -88,7 +88,16 @@
                             <a href="logout.php"><i class="fa fa-table fa-fw"></i>logOut</a>
                         </li>
                         
-                        
+                        <li>
+                            <a  onclick="myFunction()">
+
+<script>
+function myFunction() {
+    window.print();
+}
+</script>
+<i class="fa fa-print fa-fw"></i>Print Certificate</a>
+                        </li>
                         
                       
                        
@@ -103,8 +112,10 @@
             
             <!-- /.row -->
             <div class="row">
-            
 
+           
+
+ 
    <div style="width:800px; height:600px; padding:20px;  border: 10px solid #787878">
 <div style="width:750px; height:550px; padding:20px;  border: 5px solid #787878">
       <div style="text-align:center">
@@ -117,33 +128,49 @@
        
        <div style="text-align:justify;">
         <span style="font-size:18px ">
-This is Certify That...............................................   Son of.......................................
+            <?php 
+include "connection.php";
+$RegID=$_SESSION["Cid"] ;
+$query=("select * from marriagelist where RegNo ='$RegID'");
+$result=mysqli_query($connection,$query);
+if ($result) {
+  while ($row = mysqli_fetch_array($result)) {
 
-Date of Birth………………………… ...............Married with……………...................................
-Daughter/Son of…………………………………..
-Date of Birth…………………. The Marriage was Solemnized on…………… and Registeredin my office on ……….being Registration serial no…………. In the year ……………in Registrar Address.
+
+    echo "
+This is Certify That        <u>  ".$row['d2']." </u>     Son of................<u>".$row['f1']."</u>.......................
+
+Date of Birth .....<u>".$row['f1']."</u>..........Married with……………...........<u>".$row['f1']."</u>........................
+Daughter/Son of……………………<u>".$row['f1']."</u>……………..
+Date of Birth……<u>".$row['f1']."</u>……………. The Marriage was Solemnized on……<u>".$row['d1']."</u>……… and Registeredin my office being Registration serial no……<u>".$row['RegNo']."</u>……. In ……<u>".$row['date']."</u>……… Registrar Address.
 I wish them every success in life.
 
 </span><br/><br/><br/>
+";}}
+?>
 <div class="col-md-6">
     <span style="font-size:18px"> Date of Issue:   </span>
 </div>
-<div class="col-md-6" >
-    <span style="font-size:18px">Designation of Kazi
 
-  </span>
-</div>
+
+
                                        
       </div>
        
        
 </div>
 </div>
+
                 
-           
+       
+
             
                         
                     </div>
+
+
+
+
                     <!-- /.panel .chat-panel -->
                 </div>
                 <!-- /.col-lg-4 -->

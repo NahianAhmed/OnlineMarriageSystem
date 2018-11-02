@@ -114,27 +114,49 @@
                <table class="table table-hover table-bordered">
   
   <tbody>
+
+    <?php 
+include "connection.php";
+$RegID=$_SESSION["Cid"] ;
+$query=("select * from marriagelist where RegNo ='$RegID'");
+$result=mysqli_query($connection,$query);
+if ($result) {
+  while ($row = mysqli_fetch_array($result)) {
+
+
+    echo "
     <tr>
-      <th scope="row">Couples Name: </th>
-      <td>Name of Couples</td>
+      <th> Name of the bridegroom: </th>
+      <td>".$row['d2']."</td>
      
       
     </tr>
     <tr>
-      <th scope="row">Date of Marriage:</th>
-      <td>Jacob</td>
+      <th> The name of the bride: </th>
+      <td>".$row['d4']."</td>
+     
       
     </tr>
     <tr>
-      <th scope="row">Marriage Registrar’s Id</th>
+      <th>Date of Marriage:</th>
+      <td>".$row['date']."</td>
       
-      <td>@twitter</td>
     </tr>
     <tr>
-      <th scope="row">Couples Address: </th>
-    
-      <td>@twitter</td>
+      <th>Marriage Registrar’s Id</th>
+      
+      <td>".$row['RegNo']."</td>
     </tr>
+    ";
+    }
+  
+}
+else{
+  echo "<h6 >NO RECORD FOUND</h6>";
+}
+
+?>
+
   </tbody>
 </table>
 
