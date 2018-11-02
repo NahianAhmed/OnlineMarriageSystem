@@ -1,3 +1,17 @@
+<?php  
+   session_start();
+   $Qid=$_SESSION["Cid"] ;
+   
+   
+  if($_SESSION["Cid"]){
+
+  }
+  else{
+    echo '<script> location.replace("../../coupleLog.php"); </script>';
+  }
+   ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -70,7 +84,9 @@
                         <li>
                             <a href="Certificate.php"><i class="fa fa-table fa-fw"></i> Marrage Certificate</a>
                         </li>
-                        
+                        <li>
+                            <a href="logout.php"><i class="fa fa-table fa-fw"></i>logOut</a>
+                        </li>
                         
                         
                         
