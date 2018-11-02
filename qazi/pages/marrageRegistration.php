@@ -1,6 +1,6 @@
 <?php  
    session_start();
-   $admin=$_SESSION["Qid"] ;
+   $Qid=$_SESSION["Qid"] ;
    
    
   if($_SESSION["Qid"]){
@@ -283,27 +283,49 @@
             <?php 
 
                   include "connection.php";
+                  $Qid=$_SESSION["Qid"] ;
 
                   if(isset($_POST['btn'])){
-
-
                     $date=date("Y/m/d");
+                    $RegNo=rand(11111111,99999999);
                     $d1=$_POST['d1'];
+                    $d2=$_POST['d2'];
+                    $d3=$_POST['d3'];
+                    $d4=$_POST['d4'];
+                    $d5=$_POST['d5'];
+                    $d6=$_POST['d6'];
+                    $d7=$_POST['d7'];
+                    $d8=$_POST['d8'];
+                    $d9=$_POST['d9'];
+                    $d10=$_POST['d10'];
+                    $d11=$_POST['d11'];
+                    $d12=$_POST['d12'];
+                    $d13=$_POST['d13'];
+                    $d14=$_POST['d14'];
+                    $d15=$_POST['d15'];
+                    $d16=$_POST['d16'];
+                    $d17=$_POST['d17'];
+                    $d18=$_POST['d18'];
+                    $d19=$_POST['d19'];
+                    $d20=$_POST['d20'];
+                    $d21=$_POST['d21'];
+                    $d22=$_POST['d22'];
+                    $d23=$_POST['d23'];
+                    $d24=$_POST['d24'];
+                    $d25=$_POST['d25'];
+                    $d26=$Qid;
+
                   
 
 
-                  
-
-
-                      
-                        $query="insert into qazilist
-                        (name,RegID,email,password)
-                        values('$name','$RegID','$email','$Hashing');";
+             $query="insert into marriagelist
+(date,RegNo,d1,d2,d3,d4,d5,d6,d7,d8,d9,d10,d11,d12,d13,d14,d15,d16,d17,d18,d19,d20,d21,d22,d23,d24,d25,d26)
+values('$date','$RegNo','$d1','$d2','$d3','$d4','$d5','$d6','$d7','$d8','$d9','$d10','$d11','$d12','$d13',
+'$d14','$d15','$d16','$d17','$d18','$d19','$d20','$d21','$d22','$d23','$d24','$d25','$d26');";
                         $result = mysqli_query($connection,$query);
                         if($result){
-                          echo "<script>window.alert('Your Account is ready please login')</script>";
-                           echo '<script> location.replace("login.php"); </script>';
-                        }
+                          echo "<script>window.alert('Data added')</script>";
+                                   }
                         else{
 
                           echo "<script>window.alert('Problem')</script>";

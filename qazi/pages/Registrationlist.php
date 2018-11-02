@@ -1,7 +1,7 @@
 
 <?php  
    session_start();
-   $admin=$_SESSION["Qid"] ;
+   $d26=$_SESSION["Qid"] ;
    
    
   if($_SESSION["Qid"]){
@@ -123,26 +123,48 @@
   <thead class="text-center">
     <tr>
       <th>Reg. No:</th>
-      
+       <th>Date</th>
+        <th>Bridegroom's info</th>
       <th>Action</th>
     </tr>
   </thead>
   <tbody id="myTable">
  
+
+<?php 
+include "connection.php";
+$d26=$_SESSION["Qid"] ;
+$query=("select * from marriagelist where d26='$d26'");
+$result=mysqli_query($connection,$query);
+if ($result) {
+  while ($row = mysqli_fetch_array($result)) {
+
+
+    echo "
     <tr>
-      <td>a</td>
-      
+      <td>".$row['RegNo']."</td>
+      <td>".$row['date']."</td>
+      <td>".$row['d2']."</td>
       
       
       <td>
-                <a href="" class="btn btn-info" title=" Details View">
-                    <span class="glyphicon glyphicon-eye-open"></span>
+                <a href='' class='btn btn-info' title='Qazi Details View'>
+                    <span class='glyphicon glyphicon-eye-open'></span>
                 </a>
                 
                 
             </td> 
     </tr>
+  ";
+  
+  }
+  
+}
+else{
+  echo "<h6 >NO RECORD FOUND</h6>";
+}
 
+?>
 
   </tbody>
 </table>
