@@ -139,7 +139,7 @@
                                     <div class="huge">
                                      <?php
                                      include "connection.php";
-                                     $query=("SELECT COUNT(*) as total FROM marriagelist;");
+                                     $query=("SELECT COUNT(*) as total FROM qazilist;");
                                      $result=mysqli_query($connection,$query);
                                      $row = mysqli_fetch_array($result);
                                      echo $row['total'];
@@ -172,7 +172,7 @@
 
                                     <?php
                                     include "connection.php";
-                                    $query=("SELECT COUNT(*) as total FROM qazilist;");
+                                    $query=("SELECT COUNT(*) as total FROM marriagelist;");
                                     $result=mysqli_query($connection,$query);
                                     $row = mysqli_fetch_array($result);
                                     echo $row['total'];

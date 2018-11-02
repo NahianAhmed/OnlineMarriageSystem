@@ -137,11 +137,11 @@
   </div>
   <div class="form-group">
     <label for="exampleInputPassword1"><h4><b>03.Bridegroom  father’s name</b></h4> </label>
-    <input type="text" class="form-control" name="d2" id="exampleInputPassword1" placeholder=""  required="">
+    <input type="text" class="form-control" name="f1" id="exampleInputPassword1" placeholder=""  required="">
   </div>
   <div class="form-group">
     <label for="exampleInputPassword1"><h4><b>04.Address of Bridegroom:</b></h4> </label>
-    <input type="text" class="form-control" name="d2" id="exampleInputPassword1" placeholder=""  required="">
+    <input type="text" class="form-control" name="a1" id="exampleInputPassword1" placeholder=""  required="">
   </div>
     <div class="form-group">
     <label for="exampleInputPassword1"><h4><b>05.Age of bridegroom:</b></h4> </label>
@@ -154,11 +154,11 @@
   </div>
   <div class="form-group">
     <label for="exampleInputPassword1"><h4><b>07.Bride  father’s name :</b></h4> </label>
-    <input type="text" class="form-control" name="d4" id="exampleInputPassword1" placeholder="" required="">
+    <input type="text" class="form-control" name="f2" id="exampleInputPassword1" placeholder="" required="">
   </div>
   <div class="form-group">
     <label for="exampleInputPassword1"><h4><b>08.Address of Bride:</b></h4> </label>
-    <input type="text" class="form-control" name="d4" id="exampleInputPassword1" placeholder="" required="">
+    <input type="text" class="form-control" name="a2" id="exampleInputPassword1" placeholder="" required="">
   </div>
 
 
@@ -304,6 +304,14 @@
                   if(isset($_POST['btn'])){
                     $date=date("Y/m/d");
                     $RegNo=rand(11111111,99999999);
+                    
+                    $f1= $_POST['f1']; 
+                    $f2= $_POST['f2']; 
+                    $a1= $_POST['a1'];
+                    $a2= $_POST['a2'];
+                     
+
+
                     $d1=$_POST['d1'];
                     $d2=$_POST['d2'];
                     $d3=$_POST['d3'];
@@ -335,8 +343,8 @@
 
 
              $query="insert into marriagelist
-(date,RegNo,d1,d2,d3,d4,d5,d6,d7,d8,d9,d10,d11,d12,d13,d14,d15,d16,d17,d18,d19,d20,d21,d22,d23,d24,d25,d26)
-values('$date','$RegNo','$d1','$d2','$d3','$d4','$d5','$d6','$d7','$d8','$d9','$d10','$d11','$d12','$d13',
+(date,RegNo,d1,d2,f1,a1,d3,d4,f2,a2,d5,d6,d7,d8,d9,d10,d11,d12,d13,d14,d15,d16,d17,d18,d19,d20,d21,d22,d23,d24,d25,d26)
+values('$date','$RegNo','$d1','$d2','$f1','$a1','$d3','$d4','$f2','$a2','$d5','$d6','$d7','$d8','$d9','$d10','$d11','$d12','$d13',
 '$d14','$d15','$d16','$d17','$d18','$d19','$d20','$d21','$d22','$d23','$d24','$d25','$d26');";
                         $result = mysqli_query($connection,$query);
                         if($result){

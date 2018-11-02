@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 02, 2018 at 11:48 AM
+-- Generation Time: Nov 02, 2018 at 04:01 PM
 -- Server version: 10.1.32-MariaDB
 -- PHP Version: 7.2.5
 
@@ -25,16 +25,41 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `couple`
+--
+
+CREATE TABLE `couple` (
+  `id` int(11) NOT NULL,
+  `RegID` text NOT NULL,
+  `email` text NOT NULL,
+  `password` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `couple`
+--
+
+INSERT INTO `couple` (`id`, `RegID`, `email`, `password`) VALUES
+(1, '22074074', 'nahian15-5137@diu.edu.bd', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `marriagelist`
 --
 
 CREATE TABLE `marriagelist` (
   `id` int(11) NOT NULL,
   `date` varchar(15) DEFAULT NULL,
+  `RegNo` varchar(15) DEFAULT NULL,
   `d1` text NOT NULL,
   `d2` text NOT NULL,
+  `f1` varchar(15) DEFAULT NULL,
+  `a1` varchar(15) DEFAULT NULL,
   `d3` text NOT NULL,
   `d4` text NOT NULL,
+  `f2` varchar(15) DEFAULT NULL,
+  `a2` varchar(15) DEFAULT NULL,
   `d5` text NOT NULL,
   `d6` text NOT NULL,
   `d7` text NOT NULL,
@@ -58,6 +83,13 @@ CREATE TABLE `marriagelist` (
   `d25` text NOT NULL,
   `d26` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `marriagelist`
+--
+
+INSERT INTO `marriagelist` (`id`, `date`, `RegNo`, `d1`, `d2`, `f1`, `a1`, `d3`, `d4`, `f2`, `a2`, `d5`, `d6`, `d7`, `d8`, `d9`, `d10`, `d11`, `d12`, `d13`, `d14`, `d15`, `d16`, `d17`, `d18`, `d19`, `d20`, `d21`, `d22`, `d23`, `d24`, `d25`, `d26`) VALUES
+(4, '2018/11/02', '58171406', 'aSa', 'Monsur', 'sasa', 'aSa', 'ASas', 'Shuki', 'asdasdasd', 'sadasd', 'asdasd', 'sadasd', 'asdasd', 'asdasd', 'sadas', 'asdasd', 'asdsad', 'sadasd', 'asdsad', 'asdasd', 'asdasd', 'asdasd', 'sadasda', 'asdsadsa', 'asdasd', 'asdasd', 'asdasda', 'sadasd', 'asdasd', 'asdasd', 'asdasdas', '5137');
 
 -- --------------------------------------------------------
 
@@ -125,6 +157,12 @@ INSERT INTO `question` (`id`, `name`, `email`, `subject`, `message`) VALUES
 --
 
 --
+-- Indexes for table `couple`
+--
+ALTER TABLE `couple`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `marriagelist`
 --
 ALTER TABLE `marriagelist`
@@ -153,10 +191,16 @@ ALTER TABLE `question`
 --
 
 --
+-- AUTO_INCREMENT for table `couple`
+--
+ALTER TABLE `couple`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `marriagelist`
 --
 ALTER TABLE `marriagelist`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `qazi`
