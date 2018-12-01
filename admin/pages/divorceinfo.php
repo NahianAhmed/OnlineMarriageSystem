@@ -106,7 +106,7 @@
     <div id="page-wrapper">
             <div class="row text-center">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Kazi Information</h1>
+                    <h1 class="page-header">Divorce Application Information</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -121,23 +121,24 @@
 
 include "connection.php";
 
-if(isset($_GET['kazi_id'])){
-  $kazi_id = $_GET['kazi_id'];
+if(isset($_GET['divorce_id'])){
+  $divorce_id = $_GET['divorce_id'];
   /*$_SESSION["bikeid"]=$product_id;*/
   /*echo $product_id;*/
   
-  $get_kazi = "select * from qazilist where id='$kazi_id'";
+  $get_devorce = "select * from divorce where id='$divorce_id'";
   
-  $run_kazi = mysqli_query($connection, $get_kazi);
+  $run = mysqli_query($connection, $get_devorce);
   
     
-  while($row=mysqli_fetch_array($run_kazi)){
+  while($row=mysqli_fetch_array($run)){
   
-  $kazi_id=$row['id'];
-  $kazi_Rid=$row['RegID'];
-  
-  $kazi_name=$row['name'];
-  $kazi_email=$row['email'];
+  $id=$row['id'];
+  $mrid=$row['mrid'];
+  $bridegroom_name=$row['bridegroom_name'];
+  $bride_name=$row['bride_name'];
+  $mdate=$row['mdate'];
+ 
 
   
   echo "
@@ -147,21 +148,33 @@ if(isset($_GET['kazi_id'])){
   
   <tbody>
     <tr>
-      <th>Kazi Name: </th>
-      <td>$kazi_name</td>
+      <th>ID: </th>
+      <td>$id</td>
      
       
     </tr>
     <tr>
-      <th>Kazi Reg. No: </th>
-      <td> $kazi_Rid</td>
+      <th>Marrage Reg. No: </th>
+      <td> $mrid</td>
       
     </tr>
     <tr>
-      <th>Kazi E-mail</th>
+      <th>Bridegroom Name</th>
       
-      <td>$kazi_email</td>
+      <td>$bridegroom_name</td>
     </tr>
+    <tr>
+      <th>Bride Name</th>
+      
+      <td>$bride_name</td>
+    </tr>
+
+<tr>
+      <th>Marrage Date</th>
+      
+      <td>$mdate</td>
+    </tr>
+
     
   </tbody>
 

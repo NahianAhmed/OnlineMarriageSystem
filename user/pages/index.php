@@ -86,7 +86,10 @@
                             <a href="Certificate.php"><i class="fa fa-table fa-fw"></i> Marrage Certificate</a>
                         </li>
                         <li>
-                            <a href="logout.php"><i class="fa fa-table fa-fw"></i>logOut</a>
+                            <a href="divorce.php"><i class="fa fa-table fa-fw"></i> Application For Divorce</a>
+                        </li>
+                        <li>
+                            <a href="logout.php"><i class="fa fa-table fa-fw"></i> LogOut</a>
                         </li>
                         
                         
@@ -125,6 +128,19 @@ if ($result) {
 
 
     echo "
+    <tr>
+      <th> Photo of the bridegroom: </th>
+    
+      <td><img src='../../qazi/pages/".$row['photoH']."'width='100' height='100'/></td>
+     
+      
+    </tr>
+    <tr>
+      <th> Photo of the bridegroom: </th>
+      <td><img src='../../qazi/pages/".$row['photoW']."'width='100' height='100'/></td>
+     
+      
+    </tr>
     <tr>
       <th> Name of the bridegroom: </th>
       <td>".$row['d2']."</td>

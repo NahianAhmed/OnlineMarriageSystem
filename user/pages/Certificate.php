@@ -84,6 +84,9 @@
                         <li>
                             <a href="Certificate.php"><i class="fa fa-table fa-fw"></i> Marrage Certificate</a>
                         </li>
+                         <li>
+                            <a href="divorce.php"><i class="fa fa-table fa-fw"></i> Application For Divorce</a>
+                        </li>
                         <li>
                             <a href="logout.php"><i class="fa fa-table fa-fw"></i>logOut</a>
                         </li>

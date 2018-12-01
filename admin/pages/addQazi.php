@@ -91,6 +91,9 @@
                             <a href="review.php"><i class="fa fa-table fa-fw"></i> Review Registration </a>
                         </li>
                         <li>
+                            <a href="divorceList.php"><i class="fa fa-table fa-fw"></i> Divorce List </a>
+                        </li>
+                        <li>
                             <a href="logout.php"><i class="fa fa-table fa-fw"></i> LogOut </a>
                         </li>
                         

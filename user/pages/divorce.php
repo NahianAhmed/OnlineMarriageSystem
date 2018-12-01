@@ -1,3 +1,18 @@
+
+<?php  
+   session_start();
+   $Qid=$_SESSION["Cid"] ;
+   
+   
+  if($_SESSION["Cid"]){
+
+  }
+  else{
+    echo '<script> location.replace("../../coupleLog.php"); </script>';
+  }
+   ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,19 +24,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Admin</title>
-<?php  
-   session_start();
-   $admin=$_SESSION["admin"] ;
-   
-   
-  if($admin=='admin'){
+    <title>User</title>
 
-  }
-  else{
-    echo '<script> location.replace("../../adminlogin.php"); </script>';
-  }
-   ?>
     <!-- Bootstrap Core CSS -->
     <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -59,7 +63,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.php">Admin</a>
+                <a class="navbar-brand" href="index.php">User</a>
             </div>
             <!-- /.navbar-header -->
 
@@ -73,131 +77,95 @@
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
-                        </br>
+                        
                          <li>
                             <a href="index.php"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
                        
                         <li>
-                            <a href="addQazi.php"><i class="fa fa-table fa-fw"></i> Add Qazi </a>
+                            <a href="Certificate.php"><i class="fa fa-table fa-fw"></i> Marrage Certificate</a>
                         </li>
                         <li>
-                            <a href="qazitable.php"><i class="fa fa-table fa-fw"></i> Qazi List </a>
+                            <a href="divorce.php"><i class="fa fa-table fa-fw"></i> Marrage Certificate</a>
                         </li>
                         <li>
-                            <a href="review.php"><i class="fa fa-table fa-fw"></i> Review Registration </a>
+                            <a href=""><i class="fa fa-table fa-fw"></i> Divorce </a>
                         </li>
                         <li>
-                            <a href="divorceList.php"><i class="fa fa-table fa-fw"></i> Divorce List </a>
+                            <a href="logout.php"><i class="fa fa-table fa-fw"></i>logOut</a>
                         </li>
                         
-                        <li>
-                            <a href="logout.php"><i class="fa fa-table fa-fw"></i> LogOut </a>
-                        </li>
+                        
+                        
                         
                       
                        
                     </ul>
                 </div>
-             
+                <!-- /.sidebar-collapse -->
             </div>
-         
+            <!-- /.navbar-static-side -->
         </nav>
-    <div id="page-wrapper">
+
+        <div id="page-wrapper">
             <div class="row text-center">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Kazi Information</h1>
+                    <h1 class="page-header">Divorce Application Form</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
-            <!-- /.row -->
             <div class="row">
-<table class="table table-hover table-bordered">
+    <div class="col-lg-12">
+        <h3 class="text-center text-success"></h3>
+        <hr/>
+        <div class="well">
+          
+             <form method="POST"  enctype="multipart/form-data">
   
   
+  <div class="form-group">
+    <label for="exampleInputPassword1"><h4><b>01.Name of the bridegroom </b></h4></label>
+    <input type="text" class="form-control" name="bridegroom_name" id="exampleInputPassword1" placeholder=""  required="">
+  </div>
 
 
-<?php
-
-include "connection.php";
-
-if(isset($_GET['kazi_id'])){
-  $kazi_id = $_GET['kazi_id'];
-  /*$_SESSION["bikeid"]=$product_id;*/
-  /*echo $product_id;*/
-  
-  $get_kazi = "select * from qazilist where id='$kazi_id'";
-  
-  $run_kazi = mysqli_query($connection, $get_kazi);
-  
-    
-  while($row=mysqli_fetch_array($run_kazi)){
-  
-  $kazi_id=$row['id'];
-  $kazi_Rid=$row['RegID'];
-  
-  $kazi_name=$row['name'];
-  $kazi_email=$row['email'];
-
-  
-  echo "
-
-
- 
-  
-  <tbody>
-    <tr>
-      <th>Kazi Name: </th>
-      <td>$kazi_name</td>
-     
-      
-    </tr>
-    <tr>
-      <th>Kazi Reg. No: </th>
-      <td> $kazi_Rid</td>
-      
-    </tr>
-    <tr>
-      <th>Kazi E-mail</th>
-      
-      <td>$kazi_email</td>
-    </tr>
-    
-  </tbody>
-
-  ";
-    
-  }
-  }
-  
-    
-  
-    
+  <div class="form-group">
+    <label for="exampleInputPassword1"><h4><b>02.The name of the bride :</b></h4> </label>
+    <input type="text" class="form-control" name="bride_name" id="exampleInputPassword1" placeholder="" required="">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1"><h4><b>03.Marrage Date:</b></h4> </label>
+    <input type="Date" class="form-control" name="mdate" id="exampleInputPassword1" placeholder=""  required="">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1"><h4><b>04.Marrage Registration ID:</b></h4> </label>
+    <input type="text" class="form-control" name="mrid" id="exampleInputPassword1" placeholder=""  required="">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1"><h4><b>05.Couples Address:</b></h4> </label>
+    <input type="text" class="form-control" name="caddress" id="exampleInputPassword1" placeholder=""  required="">
+  </div>
+  <div class="form-group">
+                <div class=col-sm-10">
+                    <button type="submit" name="btn" class="btn btn-success btn-block"><h4><b> Apply For Divorce</b></h4></button>
+                </div>
+</form>
     
 
 
-
-?>
-
-</table>
-
-                
-               
             
                        
              </div>
                
                 </div>
                
+         
+          
+       </div>
+        <!-- /#page-wrapper -->
 
-
-
-
-
-
-        
-                    </div>
-                   
+   
+    <!-- /#wrapper -->
 
     <!-- jQuery -->
     <script src="../vendor/jquery/jquery.min.js"></script>
@@ -215,24 +183,37 @@ if(isset($_GET['kazi_id'])){
 
     <!-- Custom Theme JavaScript -->
     <script src="../dist/js/sb-admin-2.js"></script>
-    <script>
-    $(document).ready(function () {
-  $('#dtBasicExample').DataTable();
-  $('.dataTables_length').addClass('bs-select');
-});
-
-</script>
-<script>
-$(document).ready(function(){
-  $("#myInput").on("keyup", function() {
-    var value = $(this).val().toLowerCase();
-    $("#myTable tr").filter(function() {
-      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-    });
-  });
-});
-</script>
 
 </body>
 
 </html>
+<?php 
+include "connection.php";
+
+if(isset($_POST['btn'])){
+    $bridegroom_name= $_POST['bridegroom_name'];
+    $bride_name= $_POST['bride_name'];
+    $mdate= $_POST['mdate'];
+    $mrid= $_POST['mrid'];
+    $caddress= $_POST['caddress'];
+
+    $sql = "insert into divorce (bridegroom_name, bride_name,mdate,mrid,caddress)
+values ('$bridegroom_name', '$bride_name', '$mdate','$mrid','$caddress');";
+$result=mysqli_query($connection,$sql);
+                        if($result){
+                          echo "<script>window.alert('Data added')</script>";
+
+                                   }
+                        else{
+
+                          echo "<script>window.alert('Problem')</script>";
+
+
+                        }
+
+}
+
+               
+?>
+
+

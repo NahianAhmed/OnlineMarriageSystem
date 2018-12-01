@@ -60,7 +60,7 @@
       <div class="header">
         <div class="header-inner">
           <!--navbar-branding/logo - hidden image tag & site name so things like Facebook to pick up, actual logo set via CSS for flexibility -->
-          <a class="navbar-brand center-block" href="index.html" title="Home">
+          <a class="navbar-brand center-block">
 
            <h3><strong>Couple Login</strong> </h3>
 
