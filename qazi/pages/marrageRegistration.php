@@ -115,7 +115,7 @@
         <hr/>
         <div class="well">
           
-             <form method="POST">
+             <form method="POST"  enctype="multipart/form-data">
   
   <div class="form-group">
     <label for="exampleInputPassword1"><h4><b>01.Name of the Town/Union, Upazila/Thana, and District in which the marriage took place</b></h4> </label>
@@ -125,6 +125,14 @@
     <label for="exampleInputPassword1"><h4><b>02.Name of the bridegroom </b></h4> </label>
     <input type="text" class="form-control" name="d2" id="exampleInputPassword1" placeholder=""  required="">
   </div>
+
+
+  <div class="form-group">
+  <label for="exampleInputPassword1"><h4><b>...**..Photo bridegroom </b></h4> </label>
+    <input type="file" class="form-control" name="p1" id="exampleInputPassword1" placeholder=""  required="">
+  </div>
+  
+
   <div class="form-group">
     <label for="exampleInputPassword1"><h4><b>03.Bridegroom  father’s name</b></h4> </label>
     <input type="text" class="form-control" name="f1" id="exampleInputPassword1" placeholder=""  required="">
@@ -142,6 +150,13 @@
     <label for="exampleInputPassword1"><h4><b>06.The name of the bride :</b></h4> </label>
     <input type="text" class="form-control" name="d4" id="exampleInputPassword1" placeholder="" required="">
   </div>
+
+
+  <div class="form-group">
+  <label for="exampleInputPassword1"><h4><b>...**..Photo bride </b></h4> </label>
+    <input type="file" class="form-control" name="p2" id="exampleInputPassword1" placeholder=""  required="">
+  </div>
+
   <div class="form-group">
     <label for="exampleInputPassword1"><h4><b>07.Bride  father’s name :</b></h4> </label>
     <input type="text" class="form-control" name="f2" id="exampleInputPassword1" placeholder="" required="">
@@ -279,6 +294,11 @@
     <input type="text" class="form-control" name="d25" id="exampleInputPassword1" placeholder="" required="">
   </div>
 
+  <div class="form-group">
+  <label for="exampleInputPassword1"><h4><b>...**..Sign of Kazi </b></h4> </label>
+    <input type="file" class="form-control" name="p3" id="exampleInputPassword1" placeholder=""  required="">
+  </div>
+
 
 
   <div class="form-group">
@@ -286,12 +306,91 @@
                     <button type="submit" name="btn" class="btn btn-success btn-block"><h4><b> Register  Information</b></h4></button>
                 </div>
             </div>
-            <?php 
+            
+
+<?php 
+
+
+
 
                   include "connection.php";
                   $Qid=$_SESSION["Qid"] ;
 
                   if(isset($_POST['btn'])){
+
+
+////file upload
+
+$target_dir = "uploads/";
+$target_file1 = $target_dir . basename($_FILES["p1"]["name"]);
+$target_file2 = $target_dir . basename($_FILES["p2"]["name"]);
+$target_file3 = $target_dir . basename($_FILES["p3"]["name"]);
+
+$uploadOk = 1;
+$imageFileType1 = strtolower(pathinfo($target_file1,PATHINFO_EXTENSION));
+$imageFileType2 = strtolower(pathinfo($target_file2,PATHINFO_EXTENSION));
+$imageFileType3 = strtolower(pathinfo($target_file3,PATHINFO_EXTENSION));
+
+     $check1 = getimagesize($_FILES["p1"]["tmp_name"]);
+    $check2 = getimagesize($_FILES["p2"]["tmp_name"]);
+    $check3 = getimagesize($_FILES["p3"]["tmp_name"]);
+
+    if($check1 !== false && $check2 !== false && $check3 !== false) {
+        //echo "File is an image - " . $check["mime"] . ".";
+        $uploadOk = 1;
+    } else {
+        echo "<script>window.alert('File is not Image ')</script>";
+        $uploadOk = 0;
+    }
+if (file_exists($target_file1)&&file_exists($target_file2)&&file_exists($target_file3)) {
+    
+    echo "<script>window.alert('Sorry, file already exists rename your image. ')</script>";
+    $uploadOk = 0;
+}
+
+// Allow certain file formats
+if($imageFileType1 != "jpg" && $imageFileType1 != "png" && $imageFileType1 != "jpeg"
+&& $imageFileType1 != "gif" ) {
+    
+  echo "<script>window.alert('Sorry, only JPG, JPEG, PNG & GIF files are allowed. ')</script>";
+    $uploadOk = 0;
+}
+if($imageFileType2 != "jpg" && $imageFileType2 != "png" && $imageFileType2 != "jpeg"
+&& $imageFileType2 != "gif" ) {
+    echo "<script>window.alert('Sorry, only JPG, JPEG, PNG & GIF files are allowed. ')</script>";
+    $uploadOk = 0;
+}
+if($imageFileType3 != "jpg" && $imageFileType3 != "png" && $imageFileType3 != "jpeg"
+&& $imageFileType3 != "gif" ) {
+    echo "<script>window.alert('Sorry, only JPG, JPEG, PNG & GIF files are allowed. ')</script>";
+    $uploadOk = 0;
+}
+// Check if $uploadOk is set to 0 by an error
+if ($uploadOk == 0) {
+    echo "Sorry, your file was not uploaded.";
+// if everything is ok, try to upload file
+} else {
+    if (move_uploaded_file($_FILES["p1"]["tmp_name"], $target_file1)) {
+        echo "The file ". basename( $_FILES["p1"]["name"]). " has been uploaded.";
+    } else {
+        echo "Sorry, there was an error uploading your file.";
+    }
+    if (move_uploaded_file($_FILES["p2"]["tmp_name"], $target_file2)) {
+        echo "The file ". basename( $_FILES["p2"]["name"]). " has been uploaded.";
+    } else {
+        echo "Sorry, there was an error uploading your file.";
+    }
+    if (move_uploaded_file($_FILES["p3"]["tmp_name"], $target_file3)) {
+        echo "The file ". basename( $_FILES["p3"]["name"]). " has been uploaded.";
+    } else {
+        echo "Sorry, there was an error uploading your file.";
+    }
+}
+       
+
+       /////end file upload           
+
+
                     $date=date("Y/m/d");
                     $RegNo=rand(11111111,99999999);
                     
@@ -328,14 +427,18 @@
                     $d24=$_POST['d24'];
                     $d25=$_POST['d25'];
                     $d26=$Qid;
+                    $sign=$target_file3;
+                    $photoW=$target_file2;
+                    $photoH=$target_file1;
+
 
                   
 
 
              $query="insert into marriagelist
-(date,RegNo,d1,d2,f1,a1,d3,d4,f2,a2,d5,d6,d7,d8,d9,d10,d11,d12,d13,d14,d15,d16,d17,d18,d19,d20,d21,d22,d23,d24,d25,d26)
+(date,RegNo,d1,d2,f1,a1,d3,d4,f2,a2,d5,d6,d7,d8,d9,d10,d11,d12,d13,d14,d15,d16,d17,d18,d19,d20,d21,d22,d23,d24,d25,d26,sign,photoW,photoH)
 values('$date','$RegNo','$d1','$d2','$f1','$a1','$d3','$d4','$f2','$a2','$d5','$d6','$d7','$d8','$d9','$d10','$d11','$d12','$d13',
-'$d14','$d15','$d16','$d17','$d18','$d19','$d20','$d21','$d22','$d23','$d24','$d25','$d26');";
+'$d14','$d15','$d16','$d17','$d18','$d19','$d20','$d21','$d22','$d23','$d24','$d25','$d26','$sign','$photoW','$photoH');";
                         $result = mysqli_query($connection,$query);
                         if($result){
                           echo "<script>window.alert('Data added')</script>";
@@ -345,11 +448,16 @@ values('$date','$RegNo','$d1','$d2','$f1','$a1','$d3','$d4','$f2','$a2','$d5','$
                           echo "<script>window.alert('Problem')</script>";
 
                         }
-                      }
 
+
+                echo '<script> location.replace("index.php"); </script>';
+    
+}
 
 
                  ?>
+
+
           </form>
         </div>
     </div>
